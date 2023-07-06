@@ -1,0 +1,29 @@
+# Solution 1:
+class Solution(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        """
+        :type candies: List[int]
+        :type extraCandies: int
+        :rtype: List[bool]
+        """
+        out = []
+        highest_candies = max(candies)
+        for i in range(len(candies)):
+            ith_candy = candies[i] + extraCandies
+            if ith_candy >= highest_candies:
+                out.append(True)
+            else:
+                out.append(False)
+        return out
+
+#Solution 2:
+class Solution_2(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        """
+        :type candies: List[int]
+        :type extraCandies: int
+        :rtype: List[bool]
+        """
+        highest_candies = max(candies)
+        return [candy + extraCandies >= highest_candies for candy in candies]
+
